@@ -1,49 +1,101 @@
 <!DOCTYPE html>
-          color:#fff;
-          font-size:clamp(17px, 4vw, 20px);
-          font-weight:600;
-          box-sizing:border-box;
-         ">
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chun Min Jun</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .wrap {
+      min-height: 100svh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .menu {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .item {
+      display: block;
+      width: 100%;
+      padding: 18px 16px;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 12px;
+      background: #222;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    button.item {
+      opacity: 1;
+    }
+
+    #timer {
+      word-break: keep-all;
+      font-size: 17px;
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 16px;
+      }
+
+      .item {
+        padding: 20px 16px;
+        font-size: 18px;
+      }
+
+      #timer {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="menu">
+      <a
+        class="item"
+        href="http://qr.kakao.com/talk/pLSw26cbMH.4pj_eNbVGQm4qu9Y-"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         카카오톡
       </a>
 
-      <button type="button" disabled
-         style="
-          display:block;
-          width:100%;
-          padding:18px;
-          text-align:center;
-          border:none;
-          border-radius:12px;
-          background-color:#222;
-          color:#fff;
-          font-size:clamp(17px, 4vw, 20px);
-          font-weight:600;
-          box-sizing:border-box;
-          opacity:1;
-         ">
+      <button type="button" class="item" disabled>
         ISTJ
       </button>
 
-      <div id="timer"
-         style="
-          display:block;
-          width:100%;
-          padding:18px;
-          text-align:center;
-          border:none;
-          border-radius:12px;
-          background-color:#222;
-          color:#fff;
-          font-size:clamp(17px, 4vw, 20px);
-          font-weight:600;
-          line-height:1.6;
-          box-sizing:border-box;
-          word-break:keep-all;
-         ">
+      <div id="timer" class="item">
         남은 수명:
       </div>
-
     </div>
   </div>
 
@@ -74,10 +126,9 @@
         }
       }
 
-      setInterval(updateTimer, 1000);
       updateTimer();
+      setInterval(updateTimer, 1000);
     });
   </script>
-
 </body>
 </html>
