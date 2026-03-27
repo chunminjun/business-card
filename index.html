@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      word-break: break-word;
+    }
+
+    .button:hover {
+      background-color: #444;
+    }
+
+    .button:disabled {
+      cursor: default;
+      opacity: 1;
+    }
+
+    #timer {
+      font-size: 15px;
+      line-height: 1.5;
+      background-color: #222;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+
+      .button {
+        font-size: 15px;
+        padding: 14px;
+      }
+
+      #timer {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <a href="http://qr.kakao.com/talk/pLSw26cbMH.4pj_eNbVGQm4qu9Y-" target="_blank" rel="noopener noreferrer" class="button">
+      카카오톡 연결하기
+    </a>
+
+    <button class="button" type="button" disabled>
+      MBTI: ISTJ
+    </button>
+
+    <div class="button" id="timer">남은 수명:</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const averageLifeExpectancy = 79;
+      const birthDate = new Date(1989, 9, 2);
+      const deathDate = new Date(
+        birthDate.getFullYear() + averageLifeExpectancy,
+        birthDate.getMonth(),
+        birthDate.getDate()
+      );
+
+      function updateTimer() {
+        const now = new Date();
+        const timeRemaining = deathDate.getTime() - now.getTime();
+
+        if (timeRemaining > 0) {
+          const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+          document.getElementById("timer").textContent =
+            `남은 수명: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+        } else {
+          document.getElementById("timer").textContent = "수명이 종료되었습니다.";
+        }
+      }
+
+      setInterval(updateTimer, 1000);
+      updateTimer();
+    });
+  </script>
+</body>
+</html>
