@@ -16,9 +16,10 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #f7f7f5;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
     }
 
     .wrap {
@@ -26,54 +27,86 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 28px 20px;
     }
 
     .menu {
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
 
     .item {
       display: block;
       width: 100%;
-      padding: 18px 16px;
+      padding: 19px 18px;
       text-align: center;
       text-decoration: none;
-      border: none;
-      border-radius: 12px;
-      background: #222;
-      color: #fff;
-      font-size: 18px;
+      border: 1px solid rgba(26, 26, 26, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #1a1a1a;
+      font-size: 17px;
       font-weight: 600;
       line-height: 1.4;
       cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .item:hover {
+      background: #1a1a1a;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
     }
 
     button.item {
       opacity: 1;
     }
 
+    button.item:disabled {
+      opacity: 1;
+      cursor: default;
+    }
+
+    button.item:disabled:hover {
+      background: rgba(255, 255, 255, 0.82);
+      color: #1a1a1a;
+      transform: none;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    }
+
     #timer {
       word-break: keep-all;
-      font-size: 17px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #timer:hover {
+      background: rgba(255, 255, 255, 0.82);
+      color: #1a1a1a;
+      transform: none;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
     }
 
     @media (max-width: 480px) {
       .wrap {
-        padding: 16px;
+        padding: 20px 16px;
       }
 
       .item {
-        padding: 20px 16px;
-        font-size: 18px;
+        padding: 18px 16px;
+        font-size: 16px;
+        border-radius: 14px;
       }
 
       #timer {
-        font-size: 16px;
+        font-size: 15px;
       }
     }
   </style>
